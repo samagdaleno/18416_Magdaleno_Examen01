@@ -3,9 +3,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
-        android:id="@+id/txtCustName"
+        android:id="@+id/textCustomer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -24,9 +23,5 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-
-
-
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.sam.banpatito;
+package com.example.sam.banpatito2;
 
 import org.junit.Test;
 

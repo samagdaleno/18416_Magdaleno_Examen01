@@ -1,6 +1,5 @@
-package com.example.sam.banpatito;
+package com.example.sam.banpatito2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,9 +17,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     CustomerAdapter oCustomerAdapter;
-    CustomerModel oCustomer;
-    public ArrayList<CustomerModel> customerList = new ArrayList<CustomerModel>();
-    ListView oListView;
+    ArrayList<CustomerModel> customerList = new ArrayList<CustomerModel>();
     int number = 0;
 
     @Override
@@ -28,13 +25,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-
-
+        final EditText CustomerName = (EditText) findViewById(R.id.txtCustomerName);
+        final EditText CustomerOps = (EditText) findViewById(R.id.txtOps);
         Button btn_addCustomer = (Button) findViewById(R.id.btnAddCustomer);
-        oListView=(ListView) findViewById(R.id.lv_CustomerList);
+        ListView oListView=(ListView) findViewById(R.id.lv_CustomerList);
         oCustomerAdapter=new CustomerAdapter(this);
         oListView.setAdapter(oCustomerAdapter);
 
@@ -44,19 +39,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 number++;
-                EditText CustomerName = (EditText) findViewById(R.id.txtCustomerName);
-                EditText CustomerOps = (EditText) findViewById(R.id.txtOps);
-
+                int  opsNum = Integer.parseInt(CustomerOps.getText().toString());
                 Toast.makeText(getApplicationContext(), "Cool", Toast.LENGTH_LONG).show();
-
-                oCustomer = new CustomerModel(number, CustomerName.getText().toString(), 2);
+                CustomerModel oCustomer = new CustomerModel(number, CustomerName.getText().toString(), 2);
                 oCustomerAdapter.add(oCustomer);
                 oCustomerAdapter.notifyDataSetChanged();
-
             }
 
         });
-
     }
 
     @Override
